@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Rock, paper, scissors in JavaScript!",
   "scripts": {
-    "build": "webpack",
     "test": "jest"
   },
   "devDependencies": {
