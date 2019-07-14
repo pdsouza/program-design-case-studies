@@ -1,4 +1,4 @@
-import { handToChoice, handThatBeats } from './rps';
+import { handToChoice, handThatBeats, rounds } from './rps';
 
 describe('rules', () => {
   test('rock beats scissors', () => {
@@ -10,4 +10,12 @@ describe('rules', () => {
   test('scissors beats paper', () => {
     expect(handThatBeats('paper')).toBe('scissors');
   });
+});
+
+test('rounds', () => {
+  const state = {
+    scores: { 'ai' : 4, 'user' : 2 },
+    userHist: [2, 1, 4]
+  };
+  expect(rounds(state)).toEqual(7);
 });

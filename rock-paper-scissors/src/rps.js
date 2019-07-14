@@ -59,5 +59,6 @@ export {
   judge,
   aiPick,
   playRound,
-  prompt
+  prompt,
+  rounds
 }
