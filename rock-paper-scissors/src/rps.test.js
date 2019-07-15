@@ -45,7 +45,7 @@ describe('AI', () => {
     let probs = sampleDist(() => aiPick([0, 1, 0]));
     expect(probs).toEqual([0, 0, 1]);
   });
-  test('AI only picks rocks for a user that has only picked scissors', () => {
+  test('AI only picks rock for a user that has only picked scissors', () => {
     let probs = sampleDist(() => aiPick([0, 0, 1]));
     expect(probs).toEqual([1, 0, 0]);
   });
