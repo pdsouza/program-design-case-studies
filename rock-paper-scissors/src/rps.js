@@ -54,6 +54,7 @@ const rounds = (state) => state.userHist.reduce((acc, freq) => acc + freq);
 const prompt = (state) => `Round ${rounds(state) + 1}: rock, paper, scissors?`;
 
 export {
+  histToProb,
   handToChoice,
   handThatBeats,
   judge,
