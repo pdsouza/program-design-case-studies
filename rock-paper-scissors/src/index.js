@@ -8,8 +8,8 @@ function println(s) {
 }
 
 let state = {
-  score: { 'user': 0, 'ai': 0 },
-  userHist: [0, 0, 0] // histogram of hands played by user
+  score: { user: 0, ai: 0 },
+  userHist: [0, 0, 0], // histogram of hands played by user
 };
 
 function play(hand) {

@@ -2,7 +2,7 @@
 
 function histToProb(hist) {
   const events = hist.reduce((acc, freq) => acc + freq);
-  return hist.map(x => events > 0 ? x / events : 1 / hist.length)
+  return hist.map(x => (events > 0 ? x / events : 1 / hist.length));
 }
 
 function weightedRandSample(hist) {
@@ -22,8 +22,8 @@ function weightedRandSample(hist) {
 // -- pure --------------------------------------------------------------------
 
 const hands = ['rock', 'paper', 'scissors'];
-const handToChoice = (hand) => hands.findIndex(h => h === hand);
-const handThatBeats = (h) => hands[(handToChoice(h) + 1) % 3];
+const handToChoice = hand => hands.findIndex(h => h === hand);
+const handThatBeats = h => hands[(handToChoice(h) + 1) % 3];
 const beats = (h1, h2) => handThatBeats(h2) === h1;
 
 function judge(userHand, aiHand) {
@@ -40,7 +40,7 @@ function judge(userHand, aiHand) {
 }
 
 function playRound(state, userHand, aiHand) {
-  const nextState = {...state};
+  const nextState = { ...state };
 
   const result = judge(userHand, aiHand);
   if (result.winner) nextState.score[result.winner]++;
@@ -50,8 +50,8 @@ function playRound(state, userHand, aiHand) {
 }
 
 const aiPick = hist => handThatBeats(hands[weightedRandSample(hist)]);
-const rounds = (state) => state.userHist.reduce((acc, freq) => acc + freq);
-const prompt = (state) => `Round ${rounds(state) + 1}: rock, paper, scissors?`;
+const rounds = state => state.userHist.reduce((acc, freq) => acc + freq);
+const prompt = state => `Round ${rounds(state) + 1}: rock, paper, scissors?`;
 
 export {
   histToProb,
@@ -61,5 +61,5 @@ export {
   aiPick,
   playRound,
   prompt,
-  rounds
-}
+  rounds,
+};
